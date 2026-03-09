@@ -1,0 +1,11 @@
+.vs/
+out/
+build/
+cmake-build-*/
+*.user
+*.VC.db
+*.VC.opendb
+*.obj
+*.pdb
+*.ilk
+*.log
