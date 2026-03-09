@@ -1,47 +1,47 @@
 # ModernQtArchitecture
 
-Modernes Grundgeruest fuer eine professionelle Qt-6-Desktop-Anwendung mit Clean Architecture, MVVM und C++20.
+A modern foundation for a professional Qt 6 desktop application using Clean Architecture, MVVM, and C++23.
 
-## Architektur
+## Architecture
 
-- `domain`: Reines C++ Domain-Modell und Domain-Ports.
-- `application`: Use Cases, Result-Typ und abstrahierte Ports wie Logging.
-- `infrastructure`: Konkrete Adapter (In-Memory Repository, Console Logger).
-- `presentation`: Qt-basierte ViewModels und Models fuer QML.
-- `app`: Composition Root, Qt Application Start und QML UI.
-- `tests`: Unit-Tests fuer Domain und Application.
+- `domain`: Pure C++ domain model and domain ports.
+- `application`: Use cases, result type, and abstracted ports such as logging.
+- `infrastructure`: Concrete adapters (in-memory repository, console logger).
+- `presentation`: Qt-based view models and models for QML.
+- `app`: Composition root, Qt application startup, and QML UI.
+- `tests`: Unit tests for domain and application.
 
-Abhaengigkeitsrichtung: `app -> presentation -> application -> domain` und `app -> infrastructure -> (application/domain)`.
+Dependency direction: `app -> presentation -> application -> domain` and `app -> infrastructure -> (application/domain)`.
 
-## Voraussetzungen
+## Prerequisites
 
-- Visual Studio 2022 (mit C++ Desktop Development)
-- Qt 6.5+ (Core, Gui, Qml, Quick)
+- Visual Studio 2022 (with C++ Desktop Development)
+- Qt 6.10.2 (MSVC 2022 64-bit)
 - CMake 3.27+
 
-Setzen Sie `CMAKE_PREFIX_PATH` auf Ihre Qt-Installation, zum Beispiel:
+Set `CMAKE_PREFIX_PATH` to your Qt installation, for example:
 
 ```powershell
-$env:CMAKE_PREFIX_PATH="C:/Qt/6.7.2/msvc2022_64"
+$env:CMAKE_PREFIX_PATH="C:/Qt/6.10.2/msvc2022_64"
 ```
 
-## Build mit Visual Studio (Presets)
+## Build with Visual Studio (Presets)
 
 ```powershell
 cmake --preset vs2022-x64
 cmake --build --preset vs2022-x64-debug
 ```
 
-## Tests ausfuehren
+## Run tests
 
 ```powershell
 ctest --preset vs2022-x64-debug-tests
 ```
 
-## Starten
+## Run the app
 
 ```powershell
 ./out/build/vs2022-x64/Debug/mqa_app.exe
 ```
 
-Alternativ kann der Ordner direkt in Visual Studio geoeffnet werden. Die CMake-Presets werden automatisch erkannt.
+Alternatively, open the folder directly in Visual Studio. The CMake presets are detected automatically.
